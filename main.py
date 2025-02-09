@@ -1,7 +1,15 @@
-def main():
-    frankenstein_string = get_book_string("books/frankenstein.txt")
-    print(f"{count_words(frankenstein_string)} words in the book.")
-    print(count_char(frankenstein_string))
+def main(book):
+    book = get_book_string("books/frankenstein.txt")
+    display_header(book)
+    print(f"{count_words(book)} words in the book.")
+    print(count_char(book))
+
+
+def display_header(book_path):
+    print(f"+++++++++++++++++++++++++++++++++++++++++++++")
+    print(f"Analysis for text at {book_path}")
+    print(f"+++++++++++++++++++++++++++++++++++++++++++++")
+
 
 def get_book_string(book_location):
     with open(book_location) as f:
