@@ -21,12 +21,15 @@ def count_words(book_string):
 
 def count_char_dict(book_string):
     character_dict = {}
-    for character in book_string.lower():
-        if character in character_dict:
-            character_dict[character] += 1
-        else:
-            character_dict[character] = 1
-    return character_dict
+    for character in book_string:
+        if character.isalpha():
+            character_lower = character.lower()
+            if character_lower in character_dict:
+                character_dict[character_lower] += 1
+            else:
+                character_dict[character_lower] = 1
+    sorted_character_dict = dict(sorted(character_dict.items(), key=lambda item: item[1], reverse=True ))
+    return sorted_character_dict
 
 def display_char(char_dict):
     for character in char_dict:
